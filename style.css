@@ -181,24 +181,24 @@ body {
     color: #1A2070;
 }
 
-#vents {
+#speaker {
     display: flex;
     flex-direction: column;
     width: 480px;
 }
 
-#vents > p {
+#speaker > p {
     margin: 0 40px 0 0;
     color: var(--background-color);
     text-align: right;
     font-size: 15px;
 }
 
-#vents > p:nth-child(2) {
+#speaker > p:nth-child(2) {
     margin-right: 57px;
 }
 
-#vents > p:nth-child(3) {
+#speaker > p:nth-child(3) {
     margin-right: 74px;
 }
 
