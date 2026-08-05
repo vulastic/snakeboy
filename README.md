@@ -17,5 +17,5 @@ The project will be developed in version below:
 
 ## Roadmap
 
-- [ ] Version 1 - HTML & CSS
+- [X] Version 1 - HTML & CSS
 - [ ] Version 2 - Javascript Game Logic

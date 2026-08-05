@@ -1,0 +1,253 @@
+:root {
+    --background-color: #1A1A1A;
+    --console-color: #D6D1C5;
+    --console-shadow-color: #5D5953;
+    --bazel-color: #545762;
+    --screen-color: #4C5E16;
+    --arrow-color: #11111D;
+    --arrow-shadow-color: color-mix(in srgb, var(--arrow-color) 60%, var(--console-color) 40%);
+    --arrow-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 60'%3E%3Cpath fill='black' d='M2 2H38V42L20 58L2 42Z'/%3E%3C/svg%3E");
+    --button-color: #810C48;
+    --button-shadow-color: color-mix(in srgb, var(--button-color) 60%, var(--console-color) 40%);
+    --ui-scale: 1.0;
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#console {
+    background-color: var(--console-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 560px;
+    height: 840px;
+    border-radius: 5% 5% 20% 5%;
+    box-shadow: -10px 10px 2px var(--console-shadow-color);
+    transform: scale(var(--ui-scale));
+}
+
+#bezel {
+    background-color: var(--bazel-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 480px;
+    height: 520px;
+    margin-top: 40px;
+    border-radius: 5% 5% 20% 5%;
+    border: 2px solid var(--console-shadow-color);
+}
+
+#screen {
+    background-color: var(--screen-color);
+    align-self: center;
+    width: 400px;
+    height: 400px;
+    margin-top: 40px;
+    border: 3px solid var(--background-color);
+}
+
+#bezel > p {
+    color: var(--console-color);
+    margin-left: 40px;
+    margin-bottom: 20px;
+    font-family: 'League Spartan', Courier, monospace;
+    font-size: 1.2em;
+}
+
+#bezel > p > span:nth-child(2) {
+    font-weight: semibold;
+    font-style: italic;
+    font-size: 1.6em;
+}
+
+#bezel > p > span:last-child {
+    font-size: 0.6em;
+}
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+    width: 480px;
+    margin-top: 30px;
+}
+
+#dpad {
+    display: grid;
+    grid-template-columns: 60px 10px 60px;
+    grid-template-rows: 60px 10px 60px;
+    place-items: center;
+    width: 130px;
+    height: 130px;
+    padding: 15px;
+    border-radius: 50%;
+    background-color: var(--body-color);
+    box-shadow: inset 4px -4px 2px rgba(255, 255, 255, .45), 
+                inset -4px 4px 2px rgba(0,0,0,0.2);
+}
+
+.arrow {
+    width: 40px;
+    height: 60px;
+    border: none;
+    background-color: var(--arrrow-color);
+    background: var(--arrow-svg);
+}
+
+.dpad-up {
+    grid-area: 1 / 2;
+    filter: drop-shadow(-4px 4px 2px var(--arrow-shadow-color));
+}
+
+.dpad-up:active {
+    transform: translate(-2px, 2px);
+    filter: drop-shadow(0px 0px 0px var(--arrow-shadow-color));
+}
+
+.dpad-left {
+    grid-area: 2 / 1;
+    rotate:-90deg;
+    filter: drop-shadow(-4px -4px 2px var(--arrow-shadow-color));
+}
+
+.dpad-left:active {
+    transform: translate(-2px, -2px);
+    filter: drop-shadow(0px 0px 0px var(--arrow-shadow-color));
+}
+
+.dpad-right {
+    grid-area: 2 / 3;
+    rotate:90deg;
+    filter: drop-shadow(4px 4px 2px var(--arrow-shadow-color));
+}
+
+.dpad-right:active {
+    transform: translate(2px, 2px);
+    filter: drop-shadow(0px 0px 0px var(--arrow-shadow-color));
+}
+
+.dpad-down {
+    grid-area: 3 / 2;
+    rotate:180deg;
+    filter: drop-shadow(4px -4px 2px var(--arrow-shadow-color));
+}
+
+.dpad-down:active {
+    transform: translate(2px, -2px);
+    filter: drop-shadow(0px 0px 0px var(--arrow-shadow-color));
+}
+
+#buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#buttons .button-wrapper {
+    margin-left: 30px;
+    transform: rotate(-20deg);
+}
+
+#buttons .button-wrapper:first-child {
+    margin-top: 40px;
+}
+
+.action-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--button-color);
+    box-shadow: -4px 4px 4px var(--button-shadow-color);
+}
+
+.action-btn:active {
+    box-shadow: 0px 0px 0px var(--button-shadow-color);
+    transform: translate(-2px, 2px);
+}
+
+#buttons .button-wrapper > p {
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'League Spartan', Courier, monospace;
+    font-weight: bold;
+    color: #1A2070;
+}
+
+#vents {
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+}
+
+#vents > p {
+    margin: 0 40px 0 0;
+    color: var(--background-color);
+    text-align: right;
+    font-size: 15px;
+}
+
+#vents > p:nth-child(2) {
+    margin-right: 57px;
+}
+
+#vents > p:nth-child(3) {
+    margin-right: 74px;
+}
+
+/* Desktop */
+@media (max-width: 1600px), (max-height: 900px) {
+    :root {
+        --ui-scale: 0.833;
+    }
+}
+
+@media (max-width: 1440px), (max-height: 810px) {
+    :root {
+        --ui-scale: 0.750;
+    }
+}
+
+@media (max-width: 1280px), (max-height: 720px) {
+    :root {
+        --ui-scale: 0.667;
+    }
+}
+
+@media (max-width: 1024px), (max-height: 576px) {
+    :root {
+        --ui-scale: 0.600;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) and (orientation: portrait) {
+    :root {
+        --ui-scale: 0.600;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    :root {
+        --ui-scale: 0.400;
+    }
+}
+
+@media (max-width: 430px) and (orientation: portrait) {
+    :root {
+        --ui-scale: 0.500;
+    }
+}
+
+@media (max-width: 390px) and (orientation: portrait) {
+    :root {
+        --ui-scale: 0.430;
+    }
+}
