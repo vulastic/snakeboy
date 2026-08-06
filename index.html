@@ -7,13 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400..600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <div id="console">
         <div id="bezel">
-            <canvas id="screen"></canvas>
+            <canvas id="screen" width="400px" height="400px"></canvas>
             <p>
                 vulastic
                 <span>SNAKE BOY</span>
@@ -22,18 +23,18 @@
         </div>
         <div id="controls">
             <div id="dpad">
-                <button class="arrow dpad-up"></button>
-                <button class="arrow dpad-left"></button>
-                <button class="arrow dpad-right"></button>
-                <button class="arrow dpad-down"></button>
+                <button id="dpadUp" class="arrow dpad-up"></button>
+                <button id="dpadLeft" class="arrow dpad-left"></button>
+                <button id="dpadRight" class="arrow dpad-right"></button>
+                <button id="dpadDown" class="arrow dpad-down"></button>
             </div>
             <div id="buttons">
                 <div class="button-wrapper">
-                    <button class="action-btn"></button>
+                    <button id="actionReset" class="action-btn"></button>
                     <p>RESET</p>
                 </div>
                 <div class="button-wrapper">
-                    <button class="action-btn"></button>
+                    <button id="actionStart" class="action-btn"></button>
                     <p>START</p>
                 </div>
             </div>
