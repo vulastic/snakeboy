@@ -63,7 +63,7 @@ body {
     font-size: 1.2em;
 }
 
-#bezel > p > span:nth-child(2) {
+#bezel > p > span:first-child {
     font-weight: semibold;
     font-style: italic;
     font-size: 1.6em;
@@ -85,8 +85,6 @@ body {
     grid-template-columns: 60px 10px 60px;
     grid-template-rows: 60px 10px 60px;
     place-items: center;
-    width: 130px;
-    height: 130px;
     padding: 15px;
     border-radius: 50%;
     background-color: var(--body-color);
@@ -152,7 +150,7 @@ body {
 
 #buttons .button-wrapper {
     margin-left: 30px;
-    transform: rotate(-20deg);
+    rotate: -20deg;
 }
 
 #buttons .button-wrapper:first-child {
