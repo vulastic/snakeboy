@@ -9,7 +9,6 @@
     --arrow-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 60'%3E%3Cpath fill='black' d='M2 2H38V42L20 58L2 42Z'/%3E%3C/svg%3E");
     --button-color: #810C48;
     --button-shadow-color: color-mix(in srgb, var(--button-color) 60%, var(--console-color) 40%);
-    --ui-scale: 1.0;
 }
 
 body {
@@ -31,7 +30,14 @@ body {
     height: 840px;
     border-radius: 5% 5% 20% 5%;
     box-shadow: -10px 10px 2px var(--console-shadow-color);
-    transform: scale(var(--ui-scale));
+    transform: scale(
+        min(
+            calc((100vw - 40px) / 560px), 
+            calc((100vh - 40px) / 880px), 
+            1.0
+        )
+    );
+    transform-origin: center center;
 }
 
 #bezel {
@@ -200,52 +206,43 @@ body {
     margin-right: 74px;
 }
 
-/* Desktop */
-@media (max-width: 1600px), (max-height: 900px) {
-    :root {
-        --ui-scale: 0.833;
-    }
+/* Landscape */
+#console.landscape {
+    width: 880px;
+    height: 560px;
+    border-radius: 20% 20% 25% 25%;
+    justify-content: center;
+    position: relative;
+    transform: scale(
+        min(
+            calc((100vw - 40px) / 880px), 
+            calc((100vh - 40px) / 560px), 
+            1.0
+        )
+    );
 }
 
-@media (max-width: 1440px), (max-height: 810px) {
-    :root {
-        --ui-scale: 0.750;
-    }
+#console.landscape #bezel {
+    margin: 0;
 }
 
-@media (max-width: 1280px), (max-height: 720px) {
-    :root {
-        --ui-scale: 0.667;
-    }
+#console.landscape #controls {
+    position: absolute;
+    width: 840px;
+    margin-top: -60px;
+    margin-right: -10px;
 }
 
-@media (max-width: 1024px), (max-height: 576px) {
-    :root {
-        --ui-scale: 0.600;
-    }
+#console.landscape #speaker {
+    position: absolute;
+    margin-top: 280px;
+    margin-left: 400px;
 }
 
-/* Mobile */
-@media (max-width: 768px) and (orientation: portrait) {
-    :root {
-        --ui-scale: 0.600;
-    }
+#console.landscape #speaker > p:nth-child(2) {
+    margin-right: 50px;
 }
 
-@media (max-width: 768px) and (orientation: landscape) {
-    :root {
-        --ui-scale: 0.400;
-    }
-}
-
-@media (max-width: 430px) and (orientation: portrait) {
-    :root {
-        --ui-scale: 0.500;
-    }
-}
-
-@media (max-width: 390px) and (orientation: portrait) {
-    :root {
-        --ui-scale: 0.430;
-    }
+#console.landscape #speaker > p:nth-child(3) {
+    margin-right: 60px;
 }
